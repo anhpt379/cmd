@@ -1,0 +1,11 @@
+--- /home/Workspace/conf-watch/src/repository/home.Workspace.conf-watch.src.tests.1.conf	2011-07-09 19:13:01.728065882 +0700
++++ /home/Workspace/conf-watch/src/tests/1.conf	2011-07-09 19:13:15.348014456 +0700
+@@ -14,7 +14,7 @@
+   }
+   
+   upstream upload_handlers {
+-    server 127.0.0.1:9999;
++    server 127.0.0.1:8888;
+   }
+   
+   server_tokens off;

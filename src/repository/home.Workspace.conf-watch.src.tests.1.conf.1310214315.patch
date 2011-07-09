@@ -1,0 +1,10 @@
+--- /home/Workspace/conf-watch/src/repository/home.Workspace.conf-watch.src.tests.1.conf	2011-07-09 19:23:50.695642576 +0700
++++ /home/Workspace/conf-watch/src/tests/1.conf	2011-07-09 19:25:15.495331165 +0700
+@@ -58,7 +58,6 @@
+     
+     location /status {
+       stub_status on;
+-      access_log   off;
+     }
+ 
+     # Upload form should be submitted to this location

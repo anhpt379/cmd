@@ -1,0 +1,10 @@
+--- /home/Workspace/conf-watch/src/tmp/home.Workspace.conf-watch.src.tests.1.conf	2011-07-09 19:01:57.440583333 +0700
++++ /home/Workspace/conf-watch/src/tests/1.conf	2011-07-09 19:02:08.670541690 +0700
+@@ -1,6 +1,6 @@
+ worker_processes 4;
+ 
+-pid logs/upload.pid;
++pid logs/nginx.pid;
+ 
+ events {
+   worker_connections  10240;

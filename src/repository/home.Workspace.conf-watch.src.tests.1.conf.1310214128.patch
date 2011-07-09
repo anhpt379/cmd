@@ -1,0 +1,17 @@
+--- /home/Workspace/conf-watch/src/repository/home.Workspace.conf-watch.src.tests.1.conf	2011-07-09 19:21:29.516162613 +0700
++++ /home/Workspace/conf-watch/src/tests/1.conf	2011-07-09 19:22:07.676021784 +0700
+@@ -109,14 +109,11 @@
+     }
+         
+     location / {
+-      
+-      
+       proxy_pass_header Server;
+       proxy_set_header Host $http_host;
+       proxy_redirect off;
+       proxy_set_header X-Real-IP $remote_addr;
+       proxy_set_header X-Scheme $scheme;
+-       
+       proxy_pass http://request_handlers;
+     }
+   }

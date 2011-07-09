@@ -1,0 +1,19 @@
+--- 1.conf	2011-07-08 14:57:40.000000000 +0700
++++ 2.conf	2011-07-09 14:15:27.537380046 +0700
+@@ -11,7 +11,7 @@
+ 
+ http {
+   upstream request_handlers {
+-    server 127.0.0.1:5000;
++    server 127.0.0.1:8888;
+   }
+   
+   upstream upload_handlers {
+@@ -23,7 +23,6 @@
+   default_type  application/octet-stream;
+ 
+   access_log off;
+-#  error_log     /home/Workspace/hiway/log/debug.log  debug;
+ 
+   sendfile      off;
+   tcp_nopush    on;

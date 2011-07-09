@@ -1,0 +1,15 @@
+--- /home/Workspace/conf-watch/src/repository/home.Workspace.conf-watch.src.tests.1.conf	2011-07-09 19:23:20.665753008 +0700
++++ /home/Workspace/conf-watch/src/tests/1.conf	2011-07-09 19:23:50.405643640 +0700
+@@ -55,7 +55,11 @@
+   server {
+     listen       80;
+     client_max_body_size 2000M;
+-
++    
++    location /status {
++      stub_status on;
++      access_log   off;
++    }
+ 
+     # Upload form should be submitted to this location
+     location /upload {

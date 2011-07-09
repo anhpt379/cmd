@@ -1,0 +1,17 @@
+--- /home/Workspace/conf-watch/src/repository/home.Workspace.conf-watch.src.tests.1.conf	2011-07-09 19:25:41.845234530 +0700
++++ /home/Workspace/conf-watch/src/tests/1.conf	2011-07-09 19:26:19.225097551 +0700
+@@ -1,4 +1,4 @@
+-worker_processes 4;
++worker_processes 8;
+ 
+ pid logs/nginx.pid;
+ 
+@@ -10,7 +10,7 @@
+ 
+ http {
+   upstream request_handlers {
+-    server 127.0.0.1:8888;
++    server 127.0.0.1:9999;
+   }
+   
+   upstream upload_handlers {
