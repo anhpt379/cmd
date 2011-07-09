@@ -134,28 +134,30 @@ def run():
       revision_name = '%s.%s' % (tmp_file, int(time()))
       
       if DATABASE.has_key(filename) and DATABASE.get(filename) != mtime:  # file changed
-          print 'file %s changed' % file
-          
-          html = diff(tmp_file, file)
-          open('%s.html' % revision_name, 'w').write(html)  # save html file to disk
-          
-          run_command("diff -u %s %s > %s.patch" % (tmp_file, file, revision_name))   # save patch file
-          text = open('%s.patch' % revision_name).read()
-          
-          run_command("cp %s %s" % (file, tmp_file))
-          
-          if SEND_EMAIL_NOTIFICATION:
-            # Now, send changes to admins
-            headers = {'From': 'AloneRoad@Gmail.com',
-                       'To': RECIPIENTS,
-                       'Subject': 'File %s changed' % file}
-            email_it_via_gmail(headers, text, html)
+        print 'file %s changed' % file
+        
+        html = diff(tmp_file, file)
+        open('%s.html' % revision_name, 'w').write(html)  # save html file to disk
+        
+        run_command("diff -u %s %s > %s.patch" % (tmp_file, file, revision_name))   # save patch file
+        text = open('%s.patch' % revision_name).read()
+        
+        if SEND_EMAIL_NOTIFICATION:
+          # Now, send changes to admins
+          headers = {'From': 'AloneRoad@Gmail.com',
+                     'To': RECIPIENTS,
+                     'Subject': 'File %s changed' % file}
+          email_it_via_gmail(headers, text, html)
               
+        run_command("cp %s %s" % (file, tmp_file))
       DATABASE[filename] = mtime
-    sleep(1)
+    sleep(REFRESH_TIME)
   
   
 if __name__ == '__main__':
-  import daemon
-  with daemon.DaemonContext():
+  if DEBUG:
     run()
+  else:
+    import daemon
+    with daemon.DaemonContext():
+      run()
